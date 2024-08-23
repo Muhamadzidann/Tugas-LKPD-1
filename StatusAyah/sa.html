@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="Ayah">
+      <label for="umur">umur</label>
+      <select
+        name="umur"
+        id="umur"
+        style="display: flex"
+        onchange="changeLabel(this)"
+      >
+        <option value="hidup">Masih Hidup</option>
+        <option value="meninggal">Sudah meninggal</option>
+        <option value="tidakdiketahui">Tidak Diketahui</option>
+      </select>
+      <br />
+      <div id="bismilah">
+        <label for="pekerjaan">pekerjaan</label>
+        <select name="pekerjaan" id="pekerjaan" style="display: flex">
+          <option value="karyawan">karyawan</option>
+          <option value="wirausaha">wirausaha</option>
+          <option value="tidakdiketahui">Tidak Diketahui</option>
+        </select>
+        <br />
+        <label for="pendidikan">pendidikan</label>
+        <select name="pendidikan" id="pendidikan" style="display: flex">
+          <option value="sd">sekolah dasar</option>
+          <option value="smp">sekolah menengah pertama</option>
+          <option value="sma">sekolah menengah atas</option>
+          <option value="kuliah">kuliah</option>
+          <option value="diplomat">diplomati</option>
+        </select>
+        <br />
+        <label for="deskripsi">deskripsi pekerjaan ayah</label>
+        <input type="text" id="deskripsi" />
+        <br /><br />
+        <label for="total">total penghasilan ayah</label>
+        <input type="text" id="total" />
+        <h6>bila tidak diketahui, silahkan diisi 0</h6>
+        <br /><br />
+        <div id="detail">
+          <label for="detail"
+            >detail ayah bekerja, berapa lama sudah bekerja, kondisi, dan
+            kondisi karir</label
+          >
+          <input type="text" id="detail" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function changeLabel(e) {
+        if (e.value == "meninggal") {
+          document.getElementById("detail").innerHTML = `
+                    <label for="detail">Pekerjaan ayah semasa hidup</label>
+                        <input type="text" id="detail">
+                `;
+        } else {
+          document.getElementById("detail").innerHTML = `
+                    <label for="detail">detail ayah bekerja, berapa lama sudah bekerja, kondisi, dan kondisi
+          karir</label>
+                        <input type="text" id="detail">
+                `;
+        }
+
+        if (e.value == "tidakdiketahui") {
+          document.getElementById("bismilah").style.display = "none";
+        } else  {
+          document.getElementById("bismilah").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>
